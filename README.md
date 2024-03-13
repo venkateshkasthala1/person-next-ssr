@@ -44,15 +44,8 @@ To start the development server, run:
 npm run dev
 ```
 
-Visit `http://localhost:3000` in your browser to see the application in action.
+Visit `http://localhost:3000` in your browser to see the application in action. On the homepage, you will be able to get the links to the client side and server-side rendered code including the mock api (running on the Next JS)
 
-## Building for Production
-
-To build the project for production, use:
-
-```bash
-npm run build
-```
 
 ## Deploying to AWS Amplify
 
