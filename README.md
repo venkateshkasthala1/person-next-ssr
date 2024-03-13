@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js 14 Server-Side Rendering Example
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+This project demonstrates server-side rendering in Next.js 14 using the new `'use server'` directive. It features a page that fetches and displays a list of people from an API. This example showcases the use of server components in Next.js for improved performance and streamlined data fetching directly on the server.
+
+## Prerequisites
+
+- Node.js (LTS version recommended)
+- npm
+- An AWS account for deployment via AWS Amplify
+
+## Setup Instructions
+
+1. **Clone the GitHub repository:**
+
+```bash
+git clone https://github.com/gocallum/person-next-ssr
+cd person-next-ssr
+```
+
+2. **Install dependencies:**
+
+```bash
+npm install
+```
+
+3. **Environment Configuration:**
+
+Create a `.env` file in the root directory (Note: `.env.local` is not used for server components as they run only on the server side). Include the following environment variables:
+
+```plaintext
+NEXT_PUBLIC_API_HOSTNAME=https://yourapihostname.com
+API_BEARER_TOKEN=YourSecretBearerToken
+```
+
+Make sure to replace `https://yourapihostname.com` with your API's URL and `YourSecretBearerToken` with your actual bearer token.
+
+## Running the Project Locally
+
+To start the development server, run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` in your browser to see the application in action.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To build the project for production, use:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deploying to AWS Amplify
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Navigate to AWS Amplify within the AWS Management Console.**
+2. **Create a new application by selecting *Host web app*.**
+3. **Connect to the GitHub repository by selecting it and configuring the build settings as prompted. AWS Amplify provides sensible defaults for Next.js applications.**
+4. **Complete the setup and deploy your application. AWS Amplify will automatically build and deploy your site, providing a public URL upon completion.**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+The key component using server-side rendering is located at `pages/person-s/page.tsx`, showcasing the use of async data fetching with the `'use server'` directive in Next.js 14. This method enables direct server-side operations, streamlining the process of rendering data-rich components.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Support and Contributions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For support, suggestions, or contributions, please open an issue in the [GitHub repository](https://github.com/gocallum/person-next-ssr). Contributions are always welcome!
+
+---
+
+### Notes
+
