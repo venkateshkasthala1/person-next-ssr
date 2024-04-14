@@ -30,7 +30,7 @@ npm install
 Create a `.env` file in the root directory (Note: `.env.local` is not used for server components as they run only on the server side). Include the following environment variables:
 
 ```plaintext
-NEXT_PUBLIC_API_HOSTNAME=https://yourapihostname.com
+NEXT_PUBLIC_API_URL='http://localhost:3000/api/person'
 API_BEARER_TOKEN=YourSecretBearerToken
 ```
 

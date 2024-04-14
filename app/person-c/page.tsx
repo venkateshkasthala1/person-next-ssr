@@ -1,4 +1,4 @@
-// pages/people.tsx
+// app/people-c/page.tsx
 'use client'
 
 import { useEffect, useState } from 'react';
@@ -6,12 +6,13 @@ import { Person } from '../models/person'; // Adjust the import path as necessar
 
 const PeoplePage = () => {
   const [people, setPeople] = useState<Person[]>([]);
-  const apiHostname = process.env.NEXT_PUBLIC_API_HOSTNAME; // Ensure this variable is set in your .env.local file
-  const bearerToken = process.env.API_BEARER_TOKEN; // Replace this with your actual bearer token
+  const apiURL = process.env.NEXT_PUBLIC_API_URL; // This will work if used in getServerSideProps or API routes
+  const bearerToken = process.env.NEXT_API_BEARER_TOKEN; // Replace this with your actual bearer token
+  console.log(apiURL, bearerToken);
 
   useEffect(() => {
     const fetchPeople = async () => {
-      const response = await fetch(`${apiHostname}/api/person`, {
+      const response = await fetch(`${apiURL}`, {
         method: 'GET',
         headers: new Headers({
           'Authorization': `Bearer ${bearerToken}`,
@@ -27,7 +28,7 @@ const PeoplePage = () => {
     };
 
     fetchPeople();
-  }, [apiHostname]);
+  }, []);
 
   return (
     <div className="container mx-auto">

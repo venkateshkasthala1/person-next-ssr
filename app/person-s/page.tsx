@@ -4,11 +4,11 @@
 import { Person } from '../models/person'; // Adjust the import path as necessary
 
 const PeoplePage = async () => {
-  const apiHostname = process.env.NEXT_PUBLIC_API_HOSTNAME; // This will work if used in getServerSideProps or API routes
-  const bearerToken = process.env.API_BEARER_TOKEN; // Ensure this is set in your .env (not .env.local since it's a server component)
+  const apiURL = process.env.NEXT_PUBLIC_API_URL; // This will work if used in getServerSideProps or API routes
+  const bearerToken = process.env.NEXT_API_BEARER_TOKEN; // Ensure this is set in your .env (not .env.local since it's a server component)
 
   // Fetch people data
-  const response = await fetch(`${apiHostname}/api/person`, {
+  const response = await fetch(`${apiURL}`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${bearerToken}`,
