@@ -13,6 +13,7 @@ const PeoplePage = async () => {
   // Fetch people data
   const response = await fetch(`${apiURL}`, {
     method: 'GET',
+    cache: 'no-cache',
     headers: {
       'Authorization': `Bearer ${bearerToken}`,
       'Content-Type': 'application/json',
