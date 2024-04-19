@@ -31,7 +31,7 @@ Create a `.env` file in the root directory (Note: `.env.local` is not used for s
 
 ```plaintext
 NEXT_PUBLIC_API_URL='http://localhost:3000/api/person'
-API_BEARER_TOKEN=YourSecretBearerToken
+NEXT_PUBLIC_API_BEARER_TOKEN=YourSecretBearerToken
 ```
 
 Make sure to replace `https://yourapihostname.com` with your API's URL and `YourSecretBearerToken` with your actual bearer token.
