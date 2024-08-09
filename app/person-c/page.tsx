@@ -1,4 +1,3 @@
-// app/people-c/page.tsx
 'use client'
 
 import { useEffect, useState } from 'react';
@@ -12,23 +11,28 @@ const PeoplePage = () => {
 
   useEffect(() => {
     const fetchPeople = async () => {
-      const response = await fetch(`${apiURL}`, {
+      const apiURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/person";
+      const bearerToken = process.env.NEXT_PUBLIC_API_BEARER || "dummy"; 
+      
+      const response = await fetch(apiURL, {
         method: 'GET',
         headers: new Headers({
           'Authorization': `Bearer ${bearerToken}`,
           'Content-Type': 'application/json'
         }),
       });
+
       if (!response.ok) {
         console.error('Failed to fetch people');
         return;
       }
+
       const data: Person[] = await response.json();
       setPeople(data);
     };
 
     fetchPeople();
-  }, []);
+  }, [bearerToken]);
 
   return (
     <div className="container mx-auto">
@@ -45,8 +49,8 @@ const PeoplePage = () => {
         <tbody>
           {people.map((person, index) => (
             <tr key={index} className="odd:bg-gray-100">
-              <td className="p-2">{person.firstName}</td> {/* Adjusted to camelCase */}
-              <td className="p-2">{person.lastName}</td> {/* Adjusted to camelCase */}
+              <td className="p-2">{person.firstName}</td>
+              <td className="p-2">{person.lastName}</td>
               <td className="p-2">{person.phone}</td>
               <td className="p-2">{person.dob}</td>
             </tr>
