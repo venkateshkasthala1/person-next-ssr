@@ -11,8 +11,6 @@ const PeoplePage = () => {
 
   useEffect(() => {
     const fetchPeople = async () => {
-      const apiURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/person";
-      const bearerToken = process.env.NEXT_PUBLIC_API_BEARER || "dummy"; 
       
       const response = await fetch(apiURL, {
         method: 'GET',
